@@ -127,6 +127,10 @@ os.path.join(BASE_DIR,'assets'),
 )
 STATICFILES_DIRS=["./assets",]
 
+#Uploaded files are saved here
+MEDIA_ROOT =os.path.join(BASE_DIR,'media')
+MEDIA_URL ='/media/'
+
 CRISPY_TEMPLATE_PACK='bootstrap4'
 
 LOGIN_REDIRECT_URL = 'app-dashboard'
