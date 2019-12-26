@@ -13,24 +13,50 @@
       </div>
     </div>
 
-    <form method="POST" enctype="multipart/form-data">
-      {% csrf_token %}
-      <div class="card shadow-lg o-hidden border-0 my-5">
-        <div class="card-body p-0">
-          <div class="row">
-            <div class="card-body text-center shadow">
-              <fieldset class="form-group">
-                  {{ u_form|crispy }}
-                  {{ p_form|crispy }}
-              </fieldset>
-              <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Update</button>
-              </div>
-            </div>
+
+
+
+    <div class="card-group">
+
+      <div class="card">
+
+        <div class="card-body"></div>
+      </div>
+
+        <div class="card">
+          <div class="card-body shadow text-center">
+            <div class="card-body p-0">
+            <h4 class="card-title">Profile Info</h4>
+
+            <form method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+
+
+
+                      <fieldset class="form-group">
+                          {{ u_form|crispy }}
+                          {{ p_form|crispy }}
+                      </fieldset>
+                      <div class="form-group">
+                        <button class="btn btn-outline-info" type="submit">Update</button>
+                      </div>
+
+
+
+
+            </form>
+
+
+
+          </div>
           </div>
         </div>
-      </div>
-    </form>
+
+
+          <div class="card">
+            <div class="card-body"></div>
+          </div>
+
   </div>
 </div>
 
