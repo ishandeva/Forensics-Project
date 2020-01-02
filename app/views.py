@@ -12,9 +12,13 @@ def dashboard(request):
 def upload(request):
 
     if "GET" == request.method:
-        return render(request, 'app/upload.html', {})
+        form = UploadFileForm()
+        return render(request, 'app/upload.html', {'form': form})
     else:
-        excel_file = request.FILES["excel_file"]
+
+        form = UploadFileForm(request.POST, request.FILES)
+        file = request.FILES
+        excel_file = file['file']
 
         # you may put validations here to check extension or file size
 
