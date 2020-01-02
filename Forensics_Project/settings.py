@@ -135,3 +135,6 @@ CRISPY_TEMPLATE_PACK='bootstrap4'
 
 LOGIN_REDIRECT_URL = 'app-dashboard'
 LOGIN_URL = 'login'
+
+#FILE_UPLOAD_HANDLERS = ("django_excel.ExcelMemoryFileUploadHandler",
+#"django_excel.TemporaryExcelFileUploadHandler")
