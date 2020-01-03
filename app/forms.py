@@ -1,8 +1,8 @@
 from django import forms
+from .models import UploadedFile
+from django.contrib.auth.models import User
 
-class UploadFileForm(forms.Form):
-
-    file = forms.FileField()
-
+class UploadFileForm(forms.ModelForm):
     class Meta:
-        fields = ['title', 'file']
+        model = UploadedFile
+        fields = [ 'file']

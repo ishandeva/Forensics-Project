@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from .forms import UploadFileForm
+from django.contrib import messages
 import openpyxl
 
 @login_required
@@ -37,4 +38,6 @@ def upload(request):
                 row_data.append(str(cell.value))
             excel_data.append(row_data)
 
+        form.save()
+        messages.success(request, f'File Uploaded')
         return render(request, 'app/upload.html', {"excel_data":excel_data})
