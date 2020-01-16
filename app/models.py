@@ -1,11 +1,12 @@
 from django.db import models
-from django.contrib.auth.models import User
 
-# Create your models here.
-class UploadedFile(models.Model):
-    user = models.ForeignKey(User, on_delete = models.CASCADE)
-    file = models.FileField(upload_to='uploaded_files')
-    uploaded_at = models.DateTimeField(auto_now_add=True)
+class FileData(models.Model):
+    account_number = models.BigIntegerField()
+    date = models.DateField()
+    details = models.CharField(max_length=500)
+    withdrawal_amt = models.FloatField(null=True,blank=True)
+    deposit_amt = models.FloatField(null=True,blank=True)
+    balance = models.FloatField()
 
     def __str__(self):
-        return f'{self.uploaded_at}'
+        return f'{self.details}'

@@ -1,5 +1,5 @@
 """
-WSGI config for Forensics_Project project.
+WSGI config for Mk4_Forensics_Project project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Forensics_Project.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Mk4_Forensics_Project.settings')
 
 application = get_wsgi_application()
