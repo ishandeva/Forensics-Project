@@ -30,9 +30,10 @@ def upload(request):
             worksheet = workbook.get_sheet_by_name(first_sheet)
 
             last_row=worksheet.max_row
+            last_column = worksheet.max_column
 
             data = []
-
+            """
             for row in worksheet.iter_rows(min_row=2, max_row=last_row): #Offset for header
                 stock = FileData()
                 #stock.user = request.user
@@ -48,9 +49,26 @@ def upload(request):
                 data.append(stock)
             # Bulk create datas
             FileData.objects.bulk_create(data)
+            """
 
+            header_row = list()
+            for row in worksheet.iter_rows(min_row =1, max_row =1):
+                temp = list()
+                for cell in row:
+                    temp.append(str(cell.value))
+                header_row.append(temp)
+
+
+            #Column_Choices = [tuple([x,x]) for x in header_row]
+
+            context = {
+            'form' : form,
+            'header_row' : header_row
+
+            }
             messages.success(request, f'File Uploaded!')
-            return render(request,'app/upload.html',{'form': form})
+            return render(request,'app/upload.html',context)
+
     else:
         form = FileUploadForm()
         return render(request,'app/upload.html',{'form': form})
